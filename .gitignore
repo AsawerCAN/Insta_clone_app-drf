@@ -1,0 +1,5 @@
+insta_app/migrations/*
+insta_app/__pycache__/*
+insta_app/*/__pycache__/*
+core/*/__pycache__/*
+core/__pycache__/*
