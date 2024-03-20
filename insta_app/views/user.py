@@ -13,10 +13,6 @@ from insta_app.models import User
 from insta_app.serializers import UserLoginSerializer, UserSerializer
 
 
-# Custom user serializer for potential field control (optional)
-# class RetrieveUserSerializer(Serializer):
-#     # Define fields to be included in the retrieved user data
-
 class CreateUser(CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -30,7 +26,6 @@ class LoginUserView(ObtainAuthToken):
 
     def post(self, request, *args, **kwargs):
         response = super(LoginUserView, self).post(request, *args, **kwargs)
-        # Return only access token (remove full token key for security)
         token = response.data.get('token')
         if token:
             response.data = {'success': True, 'token': token}
